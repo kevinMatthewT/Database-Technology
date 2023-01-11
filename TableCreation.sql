@@ -24,3 +24,20 @@ CREATE TABLE flight(
     Destination_time TEXT NOT NULL,
     FOREIGN KEY (Plane_ID) REFERENCES Plane(Plane_ID)
 );
+
+CREATE TABLE booking(
+    Booking_ID INTEGER PRIMARY KEY NOT NULL,
+    Booking_Date TEXT NOT NULL,
+    Flight_Number INTEGER NOT NULL,
+    Passenger_ID INTEGER NOT NULL,
+    FOREIGN KEY (Flight_Number) REFERENCES flights(Flight_Number),
+    FOREIGN KEY (Passenger_ID) REFERENCES passenger(Passenger_ID)
+);
+
+CREATE TABLE payment(
+    Booking_ID INTEGER,
+    Payment_Type TEXT NOT NULL,
+    Payment_Amount INTEGER,
+    Payment_Status TEXT NOT NULL,
+    FOREIGN KEY (Booking_ID) REFERENCES booking(Booking_ID)
+);
