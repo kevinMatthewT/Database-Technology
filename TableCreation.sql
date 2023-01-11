@@ -14,3 +14,13 @@ CREATE TABLE passenger(
     Phone_Number INTEGER NOT NULL,
     Email INTEGER NOT NULL 
 );
+
+CREATE TABLE flight(
+    Flight_Number INTEGER PRIMARY KEY NOT NULL,
+    Plane_ID INTEGER,
+    Departure_time TEXT NOT NULL,
+    Departure_city TEXT NOT NULL,
+    Arrival_time TEXT NOT NULL,
+    Destination_time TEXT NOT NULL,
+    FOREIGN KEY (Plane_ID) REFERENCES Plane(Plane_ID)
+);
