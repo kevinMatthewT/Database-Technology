@@ -1,4 +1,4 @@
-insert into pla ne(Plane_ID,Plane_Type)
+insert into plane(Plane_ID,Plane_Type)
 values
   (1,"Tiger Air"),
   (2,"Sky High Airlines");
