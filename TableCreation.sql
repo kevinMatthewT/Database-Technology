@@ -32,7 +32,7 @@ CREATE TABLE booking(
     Booking_Date TEXT NOT NULL,
     Flight_Number INTEGER NOT NULL,
     Passenger_ID INTEGER NOT NULL,
-    FOREIGN KEY (Flight_Number) REFERENCES flights(Flight_Number),
+    FOREIGN KEY (Flight_Number) REFERENCES flight(Flight_Number),
     FOREIGN KEY (Passenger_ID) REFERENCES passenger(Passenger_ID)
 );
 
