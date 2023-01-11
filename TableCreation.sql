@@ -1,0 +1,16 @@
+CREATE TABLE Plane(
+    Plane_ID INTEGER PRIMARY KEY NOT NULL,
+    Plane_Type TEXT NOT NULL
+);
+
+
+CREATE TABLE passenger(
+    Passenger_ID INTEGER PRIMARY KEY NOT NULL,
+    Name TEXT NOT NULL,
+    Age INTEGER NOT NULL,
+    Sex TEXT NOT NULL,
+    Date_of_birth TEXT NOT NULL,
+    Address TEXT NOT NULL,
+    Phone_Number INTEGER NOT NULL,
+    Email INTEGER NOT NULL 
+);
