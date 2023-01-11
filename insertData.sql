@@ -55,3 +55,26 @@ Values
     (18,"2023-01-02",1,18),
     (19,"2023-01-04",1,19),
     (20,"2023-01-05",1,20);
+
+insert into payment(Booking_ID, Payment_Type, Payment_Amount,Payment_Status)
+values
+    (1,"Cash",25000,"NOT PAID"),
+    (2,"Card",0,"PAID"),
+    (3,"Cash",30000,"NOT PAID"),
+    (4,"Cash",15000,"NOT PAID"),
+    (5,"Card",0,"PAID"),
+    (6,"Card",0,"PAID"),
+    (7,"Card",0,"PAID"),
+    (8,"Card",0,"PAID"),
+    (9,"Cash",0,"PAID"),
+    (10,"Cash",45000,"NOT PAID"),
+    (11,"Card",0,"PAID"),
+    (12,"Card",0,"PAID"),
+    (13,"Card",0,"PAID"),
+    (14,"Cash",0,"PAID"),
+    (15,"Card",0,"PAID"),
+    (16,"Card",0,"PAID"),
+    (17,"Card",0,"PAID"),
+    (18,"Card",0,"PAID"),
+    (19,"Card",0,"PAID"),
+    (20,"Cash",50000,"NOT PAID");
