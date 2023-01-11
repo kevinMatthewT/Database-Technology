@@ -20,7 +20,10 @@ CREATE TABLE flight(
     Plane_ID INTEGER,
     Departure_time TEXT NOT NULL,
     Departure_city TEXT NOT NULL,
+    Departure_country TEXT NOT NULL,
     Arrival_time TEXT NOT NULL,
+    Arrival_city TEXT NOT NULL,
+    Arrival_country TEXT NOT NULL,
     Destination_time TEXT NOT NULL,
     FOREIGN KEY (Plane_ID) REFERENCES Plane(Plane_ID)
 );
