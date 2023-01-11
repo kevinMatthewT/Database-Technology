@@ -24,7 +24,6 @@ CREATE TABLE flight(
     Arrival_time TEXT NOT NULL,
     Arrival_city TEXT NOT NULL,
     Arrival_country TEXT NOT NULL,
-    Destination_time TEXT NOT NULL,
     FOREIGN KEY (Plane_ID) REFERENCES Plane(Plane_ID)
 );
 
