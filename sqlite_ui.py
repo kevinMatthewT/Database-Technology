@@ -128,7 +128,7 @@ def delete():
 def select():
     try:
         selected_item = my_tree.selection()[0]
-        passengerID = int(my_tree.item(selected_item)['values'][0])
+        passengerID = str(my_tree.item(selected_item)['values'][0])
         name = str(my_tree.item(selected_item)['values'][1])
         age = str(my_tree.item(selected_item)['values'][2])
         sex = str(my_tree.item(selected_item)['values'][3])
@@ -149,7 +149,7 @@ def select():
         messagebox.showinfo("Error", "Please select a data row")
 
 def search():
-    passengerID = int(passengerIDEntry.get())
+    passengerID = str(passengerIDEntry.get())
     name = str(nameEntry.get())
     age = str(ageEntry.get())
     sex = str(sexEntry.get())
@@ -189,7 +189,7 @@ def update():
     except:
         messagebox.showinfo("Error", "Please select a data row")
 
-    passengerID = int(passengerIDEntry.get())
+    passengerID = str(passengerIDEntry.get())
     name = str(nameEntry.get())
     age = str(ageEntry.get())
     sex = str(sexEntry.get())
@@ -234,9 +234,6 @@ def clear():
         setph("",8)
     except:
         messagebox.showinfo("Error", "Please select a data row")
-
-def details():
-    pass
 
 
 # UI 
