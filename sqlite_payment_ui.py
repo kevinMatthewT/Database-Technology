@@ -68,8 +68,6 @@ def add():
     bookingDate = str(BookingDateEntry.get())
     flightNumber = str(FlightNumberEntry.get())
     paymentType = str(PaymentTypeEntry.get())
-    paymentAmount = "0"
-    paymentStatus = "NOT PAID"
     if (flightNumber == "1"):
         paymentAmount = "100000"
     else:
@@ -87,12 +85,8 @@ def add():
     else:
         try:
             cursor = db.cursor()
-            cursor.execute(
-                "INSERT INTO booking VALUES ('" + bookingID + "','" + bookingDate + "','" + flightNumber + "','" +
-                passengerID + "') + ")
-            cursor.execute(
-                 "INSERT INTO payment VALUES ('" + bookingID + "','" + paymentType + "','" + paymentAmount + "','" +
-                 paymentStatus + "') ")
+            cursor.execute("INSERT INTO booking VALUES ('"+bookingID+"','"+bookingDate+"','"+flightNumber+"','"+passengerID+"') ")
+            cursor.execute("INSERT INTO payment VALUES ('"+bookingID+"','"+paymentType+"','"+paymentAmount+"','"+paymentStatus+"') ")
             db.commit()
             # db.close()
         except:
@@ -174,11 +168,13 @@ def search():
     paymentType = str(PaymentTypeEntry.get())
 
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM booking WHERE Passenger_ID='" +
-                   passengerID + "' or Booking_ID='" +
+    cursor.execute("SELECT * FROM booking WHERE Booking_ID='" +
                    bookingID + "' or Booking_Date='" +
                    bookingDate + "' or Flight_Number='" +
-                   flightNumber + "' ")
+                   flightNumber + "' or Passenger_ID='" +
+                   passengerID + "' ")
+    # cursor.execute("SELECT * FROM payment WHERE Payment_Type='" +
+    #                paymentType + "' ")
 
     try:
         result = cursor.fetchall()
@@ -244,34 +240,30 @@ BookingIDLabel = Label(root, text="Booking ID", font=('Arial', 15))
 BookingDateLabel = Label(root, text="Booking Date", font=('Arial', 15))
 FlightNumberLabel = Label(root, text="Flight Number", font=('Arial', 15))
 PaymentTypeLabel = Label(root, text="Payment Type", font=('Arial', 15))
-#PaymentAmountLabel = Label(root, text="Payment Amount", font=('Arial', 15))
 
 passengerIDLabel.grid(row=2, column=0, columnspan=1, padx=50, pady=5)
 BookingIDLabel.grid(row=3, column=0, columnspan=1, padx=50, pady=5)
 BookingDateLabel.grid(row=4, column=0, columnspan=1, padx=50, pady=5)
 FlightNumberLabel.grid(row=5, column=0, columnspan=1, padx=50, pady=5)
 PaymentTypeLabel.grid(row=6, column=0, columnspan=1, padx=50, pady=5)
-#PaymentAmountLabel.grid(row=7, column=0, columnspan=1, padx=50, pady=5)
 
 passengerIDEntry = Entry(root, width=55, bd=5, font=('Arial', 15), textvariable=ph1)
 BookingIDEntry = Entry(root, width=55, bd=5, font=('Arial', 15), textvariable=ph2)
 BookingDateEntry = Entry(root, width=55, bd=5, font=('Arial', 15), textvariable=ph3)
 FlightNumberEntry = Entry(root, width=55, bd=5, font=('Arial', 15), textvariable=ph4)
 PaymentTypeEntry = Entry(root, width=55, bd=5, font=('Arial', 15), textvariable=ph5)
-#PaymentAmountEntry = Entry(root, width=55, bd=5, font=('Arial', 15), textvariable=ph6)
 
 passengerIDEntry.grid(row=2, column=1, columnspan=4, padx=5, pady=0)
 BookingIDEntry.grid(row=3, column=1, columnspan=4, padx=5, pady=0)
 BookingDateEntry.grid(row=4, column=1, columnspan=4, padx=5, pady=0)
 FlightNumberEntry.grid(row=5, column=1, columnspan=4, padx=5, pady=0)
 PaymentTypeEntry.grid(row=6, column=1, columnspan=4, padx=5, pady=0)
-#PaymentAmountEntry.grid(row=7, column=1, columnspan=4, padx=5, pady=0)
 
 addBtn = Button(
     root, text="Add", padx=65, pady=25, width=10,
     bd=5, font=('Arial', 15), bg="#84F894", command=add)
 payBtn = Button(
-    root, text="Pay", padx=65, pady=25, width=10,
+    root, text="Update", padx=65, pady=25, width=10,
     bd=5, font=('Arial', 15), bg="#84E8F8", command=pay)
 searchBtn = Button(
     root, text="Search", padx=65, pady=25, width=10,
